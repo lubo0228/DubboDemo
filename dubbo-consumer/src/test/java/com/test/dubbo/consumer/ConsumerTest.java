@@ -4,7 +4,6 @@ import com.test.dubbo.pojo.User;
 import com.test.dubbo.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class ConsumerTest {
 
     @Before
     public void setUp() throws Exception {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
                 "classpath:dubbo/*.xml");
         this.userService = applicationContext.getBean(UserService.class);
     }
@@ -34,7 +33,9 @@ public class ConsumerTest {
 
     @Test
     public void test(){
-
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+                "classpath:dubbo/*.xml");
+        applicationContext.start();
     }
 
 
